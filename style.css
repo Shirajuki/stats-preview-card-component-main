@@ -67,6 +67,7 @@ div.right {
 	overflow: hidden;
 	position: relative;
 	border-radius: 0 10px 10px 0;
+	height: 100%;
 }
 div.right::before {
 	content: "";
@@ -76,5 +77,61 @@ div.right::before {
 	left: 0;
 	right: 0;
 	height: 100%;
+	opacity: 0.9;
+}
+div.right::after {
+	content: "";
+	background-color: hsl(276.8, 100%, 33.9%);
+	border-radius: 0 10px 10px 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 100%;
 	opacity: 0.4;
+}
+
+@media only screen and (max-width: 1000px) {
+	html, body {
+		 transform: scale(.9);
+	}
+}
+@media only screen and (max-width: 900px) {
+	html, body {
+		 transform: scale(.8);
+	}
+}
+@media only screen and (max-width: 700px) {
+	html, body {
+		transform: scale(1);
+	}
+	div.card {
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: 50% 50%;
+		margin: 50px;
+		text-align: center;
+	}
+	div.left {
+		order: 2;
+		grid-template-rows: auto;
+	}
+	div.stats {
+		grid-template-columns: auto;
+		grid-template-rows: repeat(3, 1fr);
+		grid-gap: 20px;
+	}
+	div.right {
+		order: 1;
+		min-height: 200px;
+	}
+	div.right,
+	div.right::before,
+	div.right::after {
+		border-radius: 10px 10px 0 0;
+	}
+	div.right::before {
+		background-image: url(images/image-header-mobile.jpg);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
 }
